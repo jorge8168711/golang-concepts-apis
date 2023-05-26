@@ -35,12 +35,15 @@ func main() {
 	   	examples.Maps()
 	   	examples.Pointers()
 	   	examples.Interfaces()
+			examples.Slices()
+			examples.VariadicFunc(2, 3, 4)
 	*/
 
 	mySquare := examples.Square{Base: 2}
 	myRectangle := examples.Rectangle{Base: 2, Height: 4}
 	examples.CalculateArea(mySquare)
 	examples.CalculateArea(myRectangle)
+	examples.WaitGroupEg()
 
 	// defer -> execute a function at the end of the function execution
 	// is like clean up function

@@ -2,6 +2,9 @@ package examples
 
 import "fmt"
 
+// for is Go’s only looping construct. Here are
+// some basic types of for loops.
+
 func Iterate() {
 	// single condition
 	i := 1
