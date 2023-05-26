@@ -37,13 +37,15 @@ func main() {
 	   	examples.Interfaces()
 			examples.Slices()
 			examples.VariadicFunc(2, 3, 4)
+			examples.WaitGroupEg()
+			examples.OtherChan()
 	*/
 
 	mySquare := examples.Square{Base: 2}
 	myRectangle := examples.Rectangle{Base: 2, Height: 4}
 	examples.CalculateArea(mySquare)
 	examples.CalculateArea(myRectangle)
-	examples.WaitGroupEg()
+	examples.AnotherChannel()
 
 	// defer -> execute a function at the end of the function execution
 	// is like clean up function
