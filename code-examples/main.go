@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"golang-basics/src/examples"
+	"golang-concepts-apis/code-examples/poo"
 )
 
 func main() {
@@ -23,24 +23,7 @@ func main() {
 	   	var d bool    // by default is -> false
 	*/
 
-	/* 	fmt.Println(examples.IsPalindrome("casa"))
-	   	examples.Operators()
-	   	examples.Arrays()
-	   	examples.IterateSlice()
-	   	examples.Conditional()
-	   	examples.Counter()
-	   	examples.Iterate()
-	   	examples.SwitchTest()
-	   	examples.Structs()
-	   	examples.Maps()
-	   	examples.Pointers()
-	   	examples.Interfaces()
-	*/
-
-	mySquare := examples.Square{Base: 2}
-	myRectangle := examples.Rectangle{Base: 2, Height: 4}
-	examples.CalculateArea(mySquare)
-	examples.CalculateArea(myRectangle)
+	poo.Classes()
 
 	// defer -> execute a function at the end of the function execution
 	// is like clean up function
