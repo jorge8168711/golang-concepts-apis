@@ -1,4 +1,4 @@
-module golang-basics
+module golang-concepts-apis/code-examples
 
 go 1.20
 

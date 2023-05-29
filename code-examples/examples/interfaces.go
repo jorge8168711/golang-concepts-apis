@@ -2,7 +2,7 @@ package examples
 
 import "fmt"
 
-type figures2D interface {
+type Figures2D interface {
 	Area() float64
 }
 
@@ -23,11 +23,18 @@ func (r Rectangle) Area() float64 {
 	return r.Base * r.Height
 }
 
-func CalculateArea(figure figures2D) {
+func calculateArea(figure Figures2D) {
 	fmt.Println("Area:", figure.Area())
 }
 
 func Interfaces() {
+	// interface with multiple types
 	myInterface := []interface{}{"Hello", 12, 4.90}
 	fmt.Println(myInterface...)
+
+	// implementing an interface
+	mySquare := Square{Base: 2}
+	myRectangle := Rectangle{Base: 2, Height: 4}
+	calculateArea(mySquare)
+	calculateArea(myRectangle)
 }
