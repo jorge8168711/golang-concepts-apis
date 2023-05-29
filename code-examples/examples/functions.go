@@ -1,6 +1,9 @@
 package examples
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 func Plus(a int, b int) int {
 	return a + b
@@ -34,8 +37,8 @@ func SomeFunc() {
 // Variadic functions can be called with any number of
 // trailing arguments. For example, fmt.Println is a common
 // variadic function.
-
 func VariadicFunc(numbers ...int) {
+	// the numbers argument is treated as a slice
 	fmt.Print(numbers, " ")
 	total := 0
 
@@ -48,4 +51,34 @@ func VariadicFunc(numbers ...int) {
 	// using a slice as parameters
 	// someNumbers := []int{1, 2, 3, 4}
 	// VariadicFunc(someNumbers...)
+}
+
+func someNumbers(x int) (double int, triple int, quad int) {
+	double = x * 2
+	triple = x * 3
+	quad = x * 4
+
+	return
+}
+
+func AnonymousFunctions() {
+	x := 5
+	y := func() int {
+		return x * 2
+	}()
+
+	fmt.Println(y)
+
+	// anonymous function with a go routine
+	c := make(chan int)
+	go func() {
+		fmt.Println("the function starts")
+		time.Sleep(2 * time.Second)
+		fmt.Println("the function ends")
+		c <- 1
+	}()
+
+	fmt.Println(<-c)
+	foo, bar, baz := someNumbers(2)
+	fmt.Println(foo, bar, baz)
 }

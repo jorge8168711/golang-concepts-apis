@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"golang-concepts-apis/code-examples/examples"
 	"golang-concepts-apis/code-examples/poo"
 )
 
@@ -24,6 +25,7 @@ func main() {
 	*/
 
 	poo.Classes()
+	examples.AnonymousFunctions()
 
 	// defer -> execute a function at the end of the function execution
 	// is like clean up function
