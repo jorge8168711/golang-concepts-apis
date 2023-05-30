@@ -6,7 +6,7 @@ import "fmt"
 // You can send values into channels from one goroutine
 // and receive those values into another goroutine.
 
-func Channels() {
+func ChannelAnonymousFunc() {
 	// Create a new channel with make(chan val-type).
 	// Channels are typed by the values they transmit.
 	messages := make(chan string)
@@ -42,7 +42,7 @@ func chanSay(text string, c chan<- string) {
 // 	text = <-c
 // }
 
-func OtherChan() {
+func ChannelDeclaredFunc() {
 	// is a good practice to define the channel size
 	c := make(chan string, 1)
 	fmt.Println("Sending message")
@@ -58,7 +58,7 @@ func message(text string, c chan<- string) {
 	c <- text
 }
 
-func AnotherChannel() {
+func ChannelsSelectClose() {
 	c := make(chan string, 2)
 	c <- "Hello"
 	c <- "World"
