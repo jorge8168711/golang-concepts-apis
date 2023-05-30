@@ -1,3 +1,10 @@
+// POO
+// interfaces
+// inheritance
+// composition
+// classes
+// structs
+
 package poo
 
 import "fmt"
@@ -24,6 +31,7 @@ func (ftEmployee FullTimeEmployee) getMessage() string {
 	return "FullTimeEmployee"
 }
 
+// composition instead of inheritance
 type TemporaryEmployee struct {
 	Person
 	Employee

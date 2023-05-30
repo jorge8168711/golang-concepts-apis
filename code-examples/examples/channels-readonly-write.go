@@ -1,3 +1,6 @@
+// CONCURRENCY
+// this example is like a pipeline, chaining the channels
+
 package examples
 
 import "fmt"
@@ -25,6 +28,11 @@ func Double(in <-chan int, out chan<- int) {
 	for value := range in {
 		// we send the value multiplied by 2 to the write only channel
 		out <- 2 * value
+
+		// this will throw an error because the data on this channel
+		// is note being read, if we specify if the channel is write only
+		// or read only, we can avoid this error using the linter
+		// in <- 1
 	}
 
 	// and the channel is closed

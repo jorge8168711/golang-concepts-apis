@@ -1,3 +1,7 @@
+// classes
+// structs with methods
+// constructors
+
 package poo
 
 import "fmt"

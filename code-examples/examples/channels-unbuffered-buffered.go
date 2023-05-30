@@ -1,3 +1,5 @@
+// CONCURRENCY
+
 package examples
 
 import (
@@ -27,11 +29,19 @@ func UnBuffChannels() {
 	c <- 1
 }
 
-// buffered channel as traffic lights
-// with this pattern we are creating a buffered channel with a size of 2
-// and we are sending 10 values to the channel
-// but the channel values are received 2 by 2 and only 2 goroutines are running at the same time
-// and when a goroutine finish, the channel is ready to receive another value
+/*
+	BUFFERED CHANNEL AS TRAFFIC LIGHTS
+
+	with this pattern we are creating a buffered channel with a size of 2
+	and we are sending 10 values to the channel
+	but the channel values are received 2 by 2 and only 2 goroutines are running at the same time
+	and when a goroutine finish, the channel is ready to receive another value
+
+	c := [][][][][]
+	c := [goRoutine1][goRoutine2]
+	c:= [goRoutine3][goRoutine2]
+*/
+
 func BufferedChannel() {
 	c := make(chan int, 2)
 	var wg sync.WaitGroup
