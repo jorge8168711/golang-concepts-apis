@@ -25,7 +25,7 @@ func main() {
 	*/
 
 	poo.Classes()
-	examples.AnonymousFunctions()
+	examples.ChannelsReadOnlyWrite()
 
 	// defer -> execute a function at the end of the function execution
 	// is like clean up function
