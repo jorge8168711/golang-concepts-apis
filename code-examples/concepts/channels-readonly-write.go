@@ -1,7 +1,7 @@
 // CONCURRENCY
 // this example is like a pipeline, chaining the channels
 
-package examples
+package concepts
 
 import "fmt"
 
@@ -13,7 +13,7 @@ import "fmt"
 // in <- CHAN int
 // read only channels
 
-// write only channel
+// Generator write only channel
 func Generator(c chan<- int) {
 	for i := 1; i <= 10; i++ {
 		c <- i
@@ -21,6 +21,7 @@ func Generator(c chan<- int) {
 	close(c)
 }
 
+// Double
 // in -  read only channel
 // out - write only channel
 func Double(in <-chan int, out chan<- int) {
@@ -39,6 +40,7 @@ func Double(in <-chan int, out chan<- int) {
 	close(out)
 }
 
+// Print
 // read only channels
 func Print(c <-chan int) {
 	for value := range c {

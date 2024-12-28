@@ -1,6 +1,6 @@
 // CONCURRENCY
 
-package examples
+package concepts
 
 import "fmt"
 
@@ -51,7 +51,7 @@ func ChannelDeclaredFunc() {
 
 	// we need to wait the execution of this go routine
 	go chanSay("END", c)
-
+	fmt.Println("this was blocked")
 	// we do this extracting the value from the channel
 	fmt.Println(<-c)
 }
@@ -69,10 +69,11 @@ func ChannelsSelectClose() {
 	// the cap function return the capacity of the channel
 	fmt.Println(len(c), cap(c))
 
-	/* close
-	close tell to the go runtime that the channel will be closed
-	and no more values will be sent to the channel
-	ideally the channels must be closed after being used */
+	/*
+		Close tell to the go runtime that the channel will be closed
+		and no more values will be sent to the channel
+		ideally the channels must be closed after being used
+	*/
 	close(c)
 
 	// we can iterate over the channel
@@ -90,6 +91,10 @@ func ChannelsSelectClose() {
 	// we use the select to receive the messages from the channels
 	// the select is like a switch but for channels
 	// the select will receive the first message that is available
+
+	// The select statement lets a goroutine wait on multiple communication operations.
+	// A select blocks until one of its cases can run, then it executes that case.
+	// It chooses one at random if multiple are ready.
 	for i := 0; i < 2; i++ {
 		select {
 		case m1 := <-email1:

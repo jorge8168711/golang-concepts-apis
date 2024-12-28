@@ -1,4 +1,4 @@
-package examples
+package concepts
 
 import (
 	"fmt"

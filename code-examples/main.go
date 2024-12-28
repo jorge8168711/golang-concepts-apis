@@ -2,8 +2,7 @@ package main
 
 import (
 	"fmt"
-	"golang-concepts-apis/code-examples/examples"
-	"golang-concepts-apis/code-examples/poo"
+	"golang-concepts-apis/code-examples/concepts"
 )
 
 func main() {
@@ -16,6 +15,9 @@ func main() {
 	   	var height int = 14
 	   	var area int
 	*/
+	// concepts.WorkerPools()
+
+	concepts.PackageContext()
 
 	// ZERO VALUES
 	/* 	var a int     // by default is -> 0
@@ -23,9 +25,6 @@ func main() {
 	   	var c string  // by default is -> ''
 	   	var d bool    // by default is -> false
 	*/
-
-	poo.Classes()
-	examples.ChannelsReadOnlyWrite()
 
 	// defer -> execute a function at the end of the function execution
 	// is like clean up function

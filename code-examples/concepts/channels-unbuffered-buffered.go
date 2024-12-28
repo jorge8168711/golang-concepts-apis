@@ -1,6 +1,6 @@
 // CONCURRENCY
 
-package examples
+package concepts
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-// By default channels are unbuffered, meaning that they will only
+// UnBuffChannels By default channels are unbuffered, meaning that they will only
 // accept sends (chan <-) if there is a corresponding
 // receive (<- chan) ready to receive the sent value.
 func UnBuffChannels() {
@@ -25,15 +25,16 @@ func UnBuffChannels() {
 		fmt.Println(result)
 	}()
 
-	// this will block the execution, this is why the deadlock! error appears
+	// this will block the execution, without the go routine this will throw
+	//  the deadlock! error appears
 	c <- 1
 }
 
 /*
 	BUFFERED CHANNEL AS TRAFFIC LIGHTS
 
-	with this pattern we are creating a buffered channel with a size of 2
-	and we are sending 10 values to the channel
+	with this pattern we are creating a buffered channel with a size of 2, and we are
+	sending 10 values to the channel
 	but the channel values are received 2 by 2 and only 2 goroutines are running at the same time
 	and when a goroutine finish, the channel is ready to receive another value
 
@@ -53,11 +54,12 @@ func BufferedChannel() {
 	}
 
 	// when the channel is full, the goroutines are blocked
-	// and the for continues when a space on the channel is available
+	// and the for continues until a space on the channel is available
 
 	wg.Wait()
 }
 
+// fake a long process
 func doSome(i int, wg *sync.WaitGroup, c chan int) {
 	defer wg.Done()
 
